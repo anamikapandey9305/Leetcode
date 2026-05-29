@@ -1,0 +1,45 @@
+// Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must be unique and you may return the result in any order.
+
+ HashSet : A HashSet is a class in Java used to store unique elements. So intercetion of two arrays also have common unique elements , that's why we use HashSet . 
+ // Main features of HashSet is :
+  If you add duplicaate values , it will add only one copy.
+
+  //Time Complexity: O(n+m)
+ 
+ 
+
+It belongs to the Java Collections Framework.
+
+// code
+
+class Solution {
+    public int[] intersection(int[] nums1, int[] nums2) {
+        HashSet<Integer> set = new HashSet<>(); // create a HashSet named set
+        HashSet<Integer> ans = new HashSet<>(); // and create another named ans
+
+        // Store nums1 elements in set
+        for (int x : nums1) {
+            set.add(x); // adds elements to the HashSet
+        }
+
+        // Check common elements
+        for (int x : nums2) {
+            if (set.contains(x)) {
+                ans.add(x); // if element is common store it in ans
+            }
+        }
+
+        // Convert HashSet to array
+        int[] result = new int[ans.size()]; // Creates integer array of size equal to answer set size.
+        int i = 0;
+
+        for (int x : ans) { // Loop through all elements in ans.
+            result[i++] = x;
+        }
+
+        return result;
+
+
+        
+    }
+}
